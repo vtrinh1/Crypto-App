@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { Card, Row, Col, Input } from 'antd'
 
 import { useGetCryptosQuery } from '../services/cryptoApi'
+import Loader from './Loader'
 
 function Cryptocurrencies({ simplified }) {
   const count = simplified ? 10 : 100
@@ -17,13 +18,13 @@ function Cryptocurrencies({ simplified }) {
     setCryptos(filteredData)
   }, [cryptosList, searchTerm])
 
-  if(isFetching) return 'Loading ... '
+  if(isFetching) return <Loader />
 
   return (
     <>
       {!simplified && (
         <div className="search-crypto">
-          <Input placeholder="Search Crpytocurrency" onChange={(e) => setSearchTerm(e.target.value)} />
+          <Input placeholder="Search Cryptocurrency" onChange={(e) => setSearchTerm(e.target.value)} />
         </div>
       )}
       <Row gutter={[32, 32]} className="crypto-card-container">
