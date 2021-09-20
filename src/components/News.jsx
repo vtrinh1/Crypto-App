@@ -12,7 +12,7 @@ const demoImage = 'https://www.bing.com/th?id=OVFT.mpzuVZnv8dwIMRfQGPbOPC&pid=Ne
 
 function News({ simplified }) {
   const [newsCategory, setNewsCategory] = useState('Cryptocurrency')
-  const { data: cryptoNews } = useGetCryptoNewsQuery({ newsCategory, count: simplified ? 6 : 12 })
+  const { data: cryptoNews } = useGetCryptoNewsQuery({ newsCategory, count: simplified ? 4 : 10 })
   const { data } = useGetCryptosQuery(100)
 
 
@@ -36,7 +36,7 @@ function News({ simplified }) {
         </Col>
       )}
       {cryptoNews.value.map((news, i) => (
-        <Col xs={24} sm={12} lg={8} key={i}>
+        <Col md={24} lg={12} key={i}>
           <Card hoverable className="news-card">
             <a href={news.url} target="_blank" rel="noreferrer">
               <div className="news-image-container">

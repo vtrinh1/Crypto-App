@@ -26,7 +26,7 @@ function Exchanges() {
       <Row>
         {exchangesList.map((exchange) => (
           <Col span={24}>
-            <Collapse>
+            <Collapse className="exchange-row">
               <Panel
                 key={exchange.id}
                 showArrow={false}
@@ -43,7 +43,7 @@ function Exchanges() {
                   </Row>
                   )}
               >
-                {HTMLReactParser(exchange.description || '')}
+                {HTMLReactParser(exchange.description || 'There is no description on this cryptocurrency yet.')}
               </Panel>
             </Collapse>
           </Col>

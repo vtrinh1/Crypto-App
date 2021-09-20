@@ -35,7 +35,7 @@ function App() {
       <div className="footer">
         <Typography.Title level={5} style={{ color: 'white', textAlign: 'center' }}>
           Cryptohub <br />
-          All Rights Reserved
+          &copy; {new Date().getFullYear()} Vincent Trinh
         </Typography.Title>
         <Space>
           <Link to="/">Home</Link>
