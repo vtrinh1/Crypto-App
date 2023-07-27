@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { Button, Menu, Typography, Avatar } from 'antd'
 import { Link } from 'react-router-dom'
-import { HomeOutlined, MoneyCollectOutlined, BulbOutlined, FundOutlined, MenuOutlined } from '@ant-design/icons'
+// import { HomeOutlined, MoneyCollectOutlined, BulbOutlined, FundOutlined, MenuOutlined } from '@ant-design/icons'
+import { HomeOutlined, BulbOutlined, FundOutlined, MenuOutlined } from '@ant-design/icons'
 import icon from '../images/cryptocurrency.png'
 
 function Navbar() {
@@ -31,30 +32,35 @@ function Navbar() {
       <div className="logo-container">
         <Avatar src={icon} size="large" />
         <Typography.Title level={2} className="logo">
-          <Link className="logo-name" to="/">Cryptohub</Link>
+          <Link className="logo-name" to="/">
+            Cryptohub
+          </Link>
         </Typography.Title>
-        <Button className="menu-control-container" onClick={() => setActiveMenu(!activeMenu)}>
+        <Button
+          className="menu-control-container"
+          onClick={() => setActiveMenu(!activeMenu)}
+        >
           <MenuOutlined />
         </Button>
       </div>
       {activeMenu && (
         <Menu theme="dark">
-          <Menu.Item icon={<HomeOutlined />}>
+          <Menu.Item icon={<HomeOutlined />} key="Home">
             <Link to="/">Home</Link>
           </Menu.Item>
-          <Menu.Item icon={<FundOutlined />}>
+          <Menu.Item icon={<FundOutlined />} key="Cryptocurrencies">
             <Link to="/cryptocurrencies">Cryptocurrencies</Link>
           </Menu.Item>
-          <Menu.Item icon={<MoneyCollectOutlined />}>
+          {/* <Menu.Item icon={<MoneyCollectOutlined />} key="Exchanges">
             <Link to="/exchanges">Exchanges</Link>
-          </Menu.Item>
-          <Menu.Item icon={<BulbOutlined />}>
+          </Menu.Item> */}
+          <Menu.Item icon={<BulbOutlined />} key="News">
             <Link to="/news">News</Link>
           </Menu.Item>
         </Menu>
       )}
     </div>
-  )
+  );
 }
 
 export default Navbar
