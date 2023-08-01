@@ -1,0 +1,7 @@
+.change__text {
+  @apply flex items-center justify-end space-x-2 w-1/12;
+}
+
+.heading__tooltip {
+  @apply w-96 text-base bg-white text-gray-600 font-semibold invisible transition-all duration-200 ease-in-out opacity-0 absolute p-4 ring-1 ring-slate-500 ring-opacity-10 rounded-xl shadow-lg -right-48;
+}

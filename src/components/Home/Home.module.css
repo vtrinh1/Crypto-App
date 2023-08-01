@@ -1,0 +1,19 @@
+.stats__wrapper {
+  @apply flex flex-col font-semibold
+}
+
+.stats__title {
+  @apply text-lg
+}
+
+.stats__value {
+  @apply text-accent text-xl
+}
+
+.box__wrapper {
+  @apply w-1/2 rounded-lg shadow-xl p-8
+}
+
+.box__title {
+  @apply text-lg font-bold
+}

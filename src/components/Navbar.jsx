@@ -1,66 +1,42 @@
-import React, { useEffect, useState } from 'react'
-import { Button, Menu, Typography, Avatar } from 'antd'
-import { Link } from 'react-router-dom'
-// import { HomeOutlined, MoneyCollectOutlined, BulbOutlined, FundOutlined, MenuOutlined } from '@ant-design/icons'
-import { HomeOutlined, BulbOutlined, FundOutlined, MenuOutlined } from '@ant-design/icons'
-import icon from '../images/cryptocurrency.png'
+import React from "react";
+import { Link } from "react-router-dom";
+import Logo from "assets/images/logo.png";
+import Header from "./Header";
 
 function Navbar() {
-  const [activeMenu, setActiveMenu] = useState(true)
-  const [screenSize, setScreenSize] = useState(null)
-
-  useEffect(() => {
-    const handleResize = () => setScreenSize(window.innerWidth)
-
-    window.addEventListener('resize', handleResize)
-
-    handleResize()
-
-    return () => window.addEventListener('resize', handleResize)
-  }, [])
-
-  useEffect(() => {
-    if(screenSize < 768) {
-      setActiveMenu(false)
-    } else {
-      setActiveMenu(true)
-    }
-  }, [screenSize])
-
+  const menuItems = ["home", "cryptocurrencies", "news"];
   return (
-    <div className="nav-container">
-      <div className="logo-container">
-        <Avatar src={icon} size="large" />
-        <Typography.Title level={2} className="logo">
-          <Link className="logo-name" to="/">
-            Cryptohub
+    <div className="w-full flex flex-col items-center">
+      <Header />
+      <div className="w-full h-px bg-slate-500 bg-opacity-10" />
+      <div className="w-full max-w-[1370px] flex items-center justify-between h-16">
+        <div className="flex items-center space-x-12 h-full">
+          <Link
+            className="flex items-center text-2xl font-semibold hover:text-textDark"
+            to="/"
+          >
+            <img src={Logo} alt="logo" className="h-8 mr-2" />
+            CryptoHub
           </Link>
-        </Typography.Title>
-        <Button
-          className="menu-control-container"
-          onClick={() => setActiveMenu(!activeMenu)}
-        >
-          <MenuOutlined />
-        </Button>
+          <div className="flex text-xl font-semibold decoration-none h-full">
+            {menuItems.map((item) => (
+              <Link
+                to={`/${item === "home" ? "" : item}`}
+                className="flex items-center capitalize px-6 h-full hover:text-accent"
+              >
+                {item}
+              </Link>
+            ))}
+          </div>
+        </div>
+        <div className="flex space-x-10 text-xl">
+          <div>watchlist</div>
+          <div>search</div>
+        </div>
       </div>
-      {activeMenu && (
-        <Menu theme="dark">
-          <Menu.Item icon={<HomeOutlined />} key="Home">
-            <Link to="/">Home</Link>
-          </Menu.Item>
-          <Menu.Item icon={<FundOutlined />} key="Cryptocurrencies">
-            <Link to="/cryptocurrencies">Cryptocurrencies</Link>
-          </Menu.Item>
-          {/* <Menu.Item icon={<MoneyCollectOutlined />} key="Exchanges">
-            <Link to="/exchanges">Exchanges</Link>
-          </Menu.Item> */}
-          <Menu.Item icon={<BulbOutlined />} key="News">
-            <Link to="/news">News</Link>
-          </Menu.Item>
-        </Menu>
-      )}
+      <div className="w-full h-px bg-slate-500 bg-opacity-10" />
     </div>
   );
 }
 
-export default Navbar
+export default Navbar;
