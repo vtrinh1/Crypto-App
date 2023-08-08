@@ -7,3 +7,7 @@ a:-webkit-any-link {
   color: inherit;
   transition: 200ms all;
 }
+
+h1 {
+  @apply text-3xl font-bold mb-4;
+}

@@ -1,6 +1,4 @@
 import React from "react";
-import millify from "millify";
-import { Typography, Row, Col, Statistic } from "antd";
 import { Link } from "react-router-dom";
 import { useGetGlobalStatsQuery } from "services/cryptoApi";
 import { Cryptocurrencies, News } from "components";
@@ -8,8 +6,6 @@ import Loader from "components/Loader";
 import styles from "./Home.module.css";
 import { NumericFormat } from "react-number-format";
 import FireIcon from "assets/images/FireIcon.png";
-
-const { Title } = Typography;
 
 function Home() {
   const { data, isFetching } = useGetGlobalStatsQuery();
@@ -19,11 +15,9 @@ function Home() {
 
   console.log(globalStats.bestCoins);
   return (
-    <div className="flex flex-col space-y-12">
-      <div className="flex flex-col mt-8">
-        <div className="text-3xl font-bold mb-4">
-          Current Global Cryptocurrency Statistics
-        </div>
+    <div className="flex flex-col space-y-16">
+      <section className="flex flex-col mt-8">
+        <h1>Current Global Cryptocurrency Statistics</h1>
         <div className="grid grid-cols-3 gap-y-4">
           <div className={styles.stats__wrapper}>
             <div className={styles.stats__title}>Total Cryptocurrencies:</div>
@@ -75,13 +69,20 @@ function Home() {
           <div className={styles.stats__wrapper}>
             <div className={styles.stats__title}>BTC Dominance:</div>
             <div className={styles.stats__value}>
-              {millify(globalStats.btcDominance)}%
+              <NumericFormat
+                className={styles.stats__value}
+                value={globalStats.btcDominance}
+                suffix={"%"}
+                thousandSeparator=","
+                displayType="text"
+                decimalScale={2}
+              />
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div className="flex flex-row space-x-4">
+      <section className="flex flex-row space-x-4">
         <div className={styles.box__wrapper}>
           <div className="flex items-center space-x-2 mb-4">
             <img src={FireIcon} className="h-6 w-6" alt="Fire Icon" />
@@ -96,7 +97,7 @@ function Home() {
                 } hover:bg-slate-500 hover:bg-opacity-10`}
                 key={bestCoin.uuid}
               >
-                <div className="text-textGray">{index + 1}</div>
+                <div className="text-textGray w-4">{index + 1}</div>
                 <img
                   className="h-6 w-6"
                   src={bestCoin.iconUrl}
@@ -122,7 +123,7 @@ function Home() {
                 } hover:bg-slate-500 hover:bg-opacity-10`}
                 key={newCoin.uuid}
               >
-                <div className="text-textGray">{index + 1}</div>
+                <div className="text-textGray w-4">{index + 1}</div>
                 <img
                   className="h-6 w-6"
                   src={newCoin.iconUrl}
@@ -134,7 +135,14 @@ function Home() {
             ))}
           </div>
         </div>
-      </div>
+      </section>
+
+      <section>
+        <Link to="/cryptocurrencies" className="hover:text-accent">
+          <h1>Today's Top Cryptocurrency</h1>
+        </Link>
+        <Cryptocurrencies simplified />
+      </section>
       {/* <div className="home-heading-container">
         <Title level={2} className="home-title">Top 10 Cryptocurrencies in the world</Title>
         <Title level={3} className="show-more"><Link to="/cryptocurrencies">Show More</Link></Title>

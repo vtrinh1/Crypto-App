@@ -5,3 +5,19 @@
 .heading__tooltip {
   @apply w-96 text-base bg-white text-gray-600 font-semibold invisible transition-all duration-200 ease-in-out opacity-0 absolute p-4 ring-1 ring-slate-500 ring-opacity-10 rounded-xl shadow-lg -right-48;
 }
+
+.heading__caret_down {
+  @apply w-0 h-0 border-l-[5px] border-l-transparent border-t-[8px] border-t-textDark border-r-[5px] border-r-transparent opacity-50 transition-opacity duration-150 ease-in-out;
+}
+
+.heading__caret_up {
+  @apply w-0 h-0 border-l-[5px] border-l-transparent border-b-[8px] border-b-textDark border-r-[5px] border-r-transparent opacity-50 transition-opacity duration-150 ease-in-out;
+}
+
+.heading__caret_placeholder {
+  @apply w-0 h-0 border-l-[5px] border-l-transparent border-b-[8px] border-b-textDark border-r-[5px] border-r-transparent opacity-0 transition-opacity duration-150 ease-in-out;
+}
+
+.coin__skeleton {
+  @apply w-full rounded bg-slate-200;
+}
