@@ -11,6 +11,7 @@ module.exports = {
         blue: "rgb(32,42,60)",
         accent: "#3861FB",
         textDark: "#0D1421",
+        textDarkGray: "#58667E",
         textGray: "#808A9D",
         ratinggreen: "#008000",
       },

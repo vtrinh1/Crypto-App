@@ -19,5 +19,5 @@
 }
 
 .coin__skeleton {
-  @apply w-full rounded bg-slate-200;
+  @apply w-full bg-slate-200 rounded;
 }

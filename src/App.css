@@ -11,3 +11,19 @@ a:-webkit-any-link {
 h1 {
   @apply text-3xl font-bold mb-4;
 }
+
+h2 {
+  @apply text-lg capitalize;
+}
+
+.animate-skeleton {
+  @apply animate-pulse bg-slate-200 rounded;
+}
+
+.animate-skeleton-image {
+  @apply animate-pulse bg-slate-200 rounded-xl;
+}
+
+.page__wrapper {
+  @apply flex flex-col mt-8;
+}

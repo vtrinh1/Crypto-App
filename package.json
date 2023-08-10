@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@ant-design/icons": "^4.6.4",
+    "@badrap/bar-of-progress": "^0.2.2",
     "@headlessui/react": "^1.7.16",
     "@heroicons/react": "^2.0.18",
     "@reduxjs/toolkit": "^1.9.5",

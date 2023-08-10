@@ -162,7 +162,7 @@ function Cryptocurrencies({ simplified }) {
   };
 
   return (
-    <div className="flex flex-col mt-6">
+    <section className="flex flex-col mt-6">
       {!simplified && (
         <>
           <div className="flex font-bold text-3xl items-center mb-4">
@@ -428,7 +428,7 @@ function Cryptocurrencies({ simplified }) {
                     src={coin.iconUrl}
                     alt={`${coin.name} Icon`}
                   />
-                  <p>{coin.name}</p>
+                  <p className="truncate">{coin.name}</p>
                   <p className="text-textGray text-sm">{coin.symbol}</p>
                 </div>
                 {coin.price < 0.0000001 ? (
@@ -555,7 +555,7 @@ function Cryptocurrencies({ simplified }) {
               </div>
             ))}
       </div>
-    </div>
+    </section>
   );
 }
 
