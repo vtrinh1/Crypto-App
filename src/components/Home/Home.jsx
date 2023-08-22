@@ -99,10 +99,17 @@ function Home() {
       </section>
 
       <section>
-        <Link to="/cryptocurrencies" className="hover:text-accent">
-          <h1>Today's Top Cryptocurrency</h1>
+        <Link to="/cryptocurrencies">
+          <h1 className="hover:text-accent">Today's Top Cryptocurrency</h1>
         </Link>
         <Cryptocurrencies simplified />
+      </section>
+
+      <section>
+        <Link to="/news">
+          <h1 className="hover:text-accent">Latest Cryptocurrency Updates</h1>
+        </Link>
+        <News simplified />
       </section>
       {/* <div className="home-heading-container">
         <Title level={2} className="home-title">Top 10 Cryptocurrencies in the world</Title>

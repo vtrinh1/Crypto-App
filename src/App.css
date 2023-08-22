@@ -6,24 +6,69 @@ a:-webkit-any-link {
   text-decoration: none;
   color: inherit;
   transition: 200ms all;
+  @apply dark:text-neutral-300 transition-colors;
+}
+
+p {
+  @apply dark:text-neutral-300 transition-colors;
 }
 
 h1 {
-  @apply text-3xl font-bold mb-4;
+  @apply dark:text-neutral-300 transition-colors text-3xl font-bold mb-4;
 }
 
 h2 {
-  @apply text-lg capitalize;
+  @apply dark:text-neutral-300 transition-colors text-lg capitalize;
 }
 
 .animate-skeleton {
-  @apply animate-pulse bg-slate-200 rounded;
+  @apply animate-pulse bg-slate-200 dark:bg-neutral-800 rounded;
 }
 
 .animate-skeleton-image {
-  @apply animate-pulse bg-slate-200 rounded-xl;
+  @apply animate-pulse bg-slate-200 dark:bg-neutral-800 rounded-xl;
 }
 
 .page__wrapper {
-  @apply flex flex-col mt-8;
+  @apply flex flex-col my-8;
+}
+
+.input {
+  @apply font-semibold ring-2 dark:bg-neutral-900 ring-slate-500 ring-opacity-10 rounded-lg px-4 py-2 focus:outline-0 focus:ring-opacity-40 text-textDark dark:text-neutral-300 hover:ring-opacity-40 focus:placeholder:opacity-50 transition-all;
+}
+
+.listbox__wrapper {
+  @apply flex items-center font-semibold text-slate-500 dark:text-neutral-300 transition-colors;
+}
+
+.listbox__text {
+  @apply mr-2;
+}
+
+.listbox__button-wrapper {
+  @apply relative;
+}
+
+.listbox__button {
+  @apply py-1 pl-2 pr-1 rounded-xl flex items-center justify-between bg-slate-400 bg-opacity-10 ring-1 ring-black ring-opacity-5 capitalize;
+}
+
+.listbox__button-icon__wrapper {
+  @apply flex items-center;
+}
+
+.listbox__button-icon {
+  @apply h-5;
+}
+
+.listbox__options-wrapper {
+  @apply absolute mt-2 w-full rounded-xl bg-white  font-semibold shadow-lg ring-1 ring-black ring-opacity-5 p-1;
+}
+
+.listbox__option {
+  @apply flex items-center justify-between relative cursor-pointer select-none py-1.5 px-1.5 rounded-xl hover:bg-slate-400 hover:bg-opacity-10 capitalize;
+}
+
+.listbox__options-icon {
+  @apply h-3;
 }

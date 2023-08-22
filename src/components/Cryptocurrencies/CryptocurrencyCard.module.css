@@ -1,0 +1,12 @@
+.change__text {
+  @apply flex items-center justify-end space-x-2 w-1/12;
+}
+
+.coin__skeleton {
+  @apply w-full rounded;
+  @apply bg-slate-200;
+}
+
+:global(.dark) .coin__skeleton {
+  @apply bg-neutral-800;
+}

@@ -22,7 +22,8 @@ function Navbar() {
             {menuItems.map((item) => (
               <Link
                 to={`/${item === "home" ? "" : item}`}
-                className="flex items-center capitalize px-6 h-full hover:text-accent"
+                className="flex items-center capitalize px-6 h-full hover:text-accent dark:hover:text-accent"
+                key={item}
               >
                 {item}
               </Link>
@@ -30,8 +31,8 @@ function Navbar() {
           </div>
         </div>
         <div className="flex space-x-10 text-xl">
-          <div>watchlist</div>
-          <div>search</div>
+          <p>watchlist</p>
+          <p>search</p>
         </div>
       </div>
       <div className="w-full h-px bg-slate-500 bg-opacity-10" />

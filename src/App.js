@@ -1,14 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Switch, Route, Link } from "react-router-dom";
-import { Layout, Typography, Space } from "antd";
-// import { Navbar, Exchanges, Home, Cryptocurrencies, News, CryptoDetails } from './components'
 import { Navbar, Cryptocurrencies, News, CryptoDetails } from "./components";
 import Home from "./components/Home/Home.jsx";
 import "./App.css";
 
 function App() {
+  useEffect(() => {
+    // System preference dark mode
+    if (
+      localStorage.theme === "dark" ||
+      (!("theme" in localStorage) &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches)
+    ) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, []);
+
   return (
-    <div className="w-full flex flex-col items-center">
+    <div className="min-h-screen bg-slate-50 dark:bg-neutral-900 transition-colors w-full flex flex-col items-center">
       <Navbar />
       <div className="w-full max-w-[1370px]">
         <div className="routes">
@@ -29,20 +40,6 @@ function App() {
               <News />
             </Route>
           </Switch>
-        </div>
-        <div className="footer">
-          <Typography.Title
-            level={5}
-            style={{ color: "white", textAlign: "center" }}
-          >
-            Cryptohub <br />
-            &copy; {new Date().getFullYear()} Vincent Trinh
-          </Typography.Title>
-          <Space>
-            <Link to="/">Home</Link>
-            {/* <Link to="/exchanges">Exchanges</Link> */}
-            <Link to="/news">News</Link>
-          </Space>
         </div>
       </div>
     </div>
