@@ -95,8 +95,6 @@ function CryptoDetails() {
     },
   ];
 
-  console.log(coinHistory);
-
   
   return (
     <Col className="coin-detail-container">

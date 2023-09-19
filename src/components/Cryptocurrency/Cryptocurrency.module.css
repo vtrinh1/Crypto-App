@@ -1,0 +1,7 @@
+.coin_stats__wrapper {
+  @apply flex flex-col
+}
+
+.change__text {
+  @apply flex items-center text-lg font-bold;
+}

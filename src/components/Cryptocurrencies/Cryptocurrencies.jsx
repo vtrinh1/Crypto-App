@@ -154,7 +154,7 @@ function Cryptocurrencies({ simplified }) {
   };
 
   return (
-    <section className="flex flex-col mt-6">
+    <section className="flex flex-col mt-6 mb-12">
       {!simplified && (
         <>
           <div className="flex font-bold text-3xl items-center mb-4">

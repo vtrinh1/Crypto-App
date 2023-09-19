@@ -62,7 +62,7 @@ h2 {
 }
 
 .listbox__options-wrapper {
-  @apply absolute mt-2 w-full rounded-xl bg-white  font-semibold shadow-lg ring-1 ring-black ring-opacity-5 p-1;
+  @apply absolute mt-2 w-full rounded-xl bg-white  font-semibold shadow-lg ring-1 ring-black ring-opacity-5 p-1 z-10;
 }
 
 .listbox__option {

@@ -66,18 +66,20 @@ function Header() {
         <Switch
           checked={darkMode}
           onChange={toggleDarkMode}
-          className="dark:bg-neutral-800 bg-slate-200 relative inline-flex h-8 w-14 items-center rounded-full shadow-inner transition-colors"
+          className="dark:bg-neutral-800 bg-slate-200 relative inline-flex h-8 w-14 items-center rounded-full shadow-inner transition-colors group"
         >
           <span className="sr-only">Enable dark mode</span>
           <span
             className={`${
-              darkMode === "dark" ? "translate-x-6" : "translate-x-1"
+              darkMode === "dark"
+                ? "group-hover:translate-x-5 translate-x-6"
+                : "group-hover:translate-x-2 translate-x-1"
             } transition`}
           >
             {localStorage.theme === "dark" ? (
-              <MoonIcon className="inline-block h-7 w-7 transform rounded-full bg-neutral-700 text-slate-100 p-1 transition" />
+              <MoonIcon className="inline-block h-7 w-7 transform rounded-full bg-neutral-700 text-slate-100 p-1 transition group-hover:bg-neutral-600" />
             ) : (
-              <SunIcon className="inline-block h-7 w-7 transform rounded-full bg-slate-50 p-0.5 transition" />
+              <SunIcon className="inline-block h-7 w-7 transform rounded-full bg-slate-50 p-0.5 transition group-hover:bg-slate-100" />
             )}
           </span>
           <span />

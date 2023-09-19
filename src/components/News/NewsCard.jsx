@@ -25,14 +25,19 @@ function NewsCard({ data, isFetching, simplified }) {
             rel="noreferrer"
             key={index}
           >
-            <div className="flex flex-col space-y-2">
+            <div className="flex flex-col space-y-2 relative">
               <img
-                className={`h-48 w-full object-cover rounded-xl mb-4 ${
-                  imageLoaded[index] ? "" : "animate-skeleton-image"
+                className={`h-48 w-full object-cover rounded-xl mb-4 shadow-md bg-white ${
+                  !imageLoaded[index] && "opacity-0"
                 }`}
                 src={news?.image?.contentUrl || defaultNewsImage}
                 alt="news"
                 onLoad={() => handleImageLoad(index)}
+              />
+              <span
+                className={`absolute -top-2 h-48 w-full rounded-xl animate-skeleton-image ${
+                  imageLoaded[index] && "hidden"
+                }`}
               />
               <h2 className="font-bold mb-2">{news.name}</h2>
               <p className="font-semibold text-textDarkGray overflow-hidden h-[72px]">

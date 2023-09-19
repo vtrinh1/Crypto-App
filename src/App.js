@@ -1,10 +1,18 @@
-import React, { useEffect, useState } from "react";
-import { Switch, Route, Link } from "react-router-dom";
-import { Navbar, Cryptocurrencies, News, CryptoDetails } from "./components";
+import React, { useEffect } from "react";
+import { Switch, Route } from "react-router-dom";
+import {
+  Navbar,
+  Cryptocurrencies,
+  News,
+  CryptoDetails,
+  Cryptocurrency,
+} from "./components";
 import Home from "./components/Home/Home.jsx";
 import "./App.css";
+import Footer from "components/Footer";
 
 function App() {
+
   useEffect(() => {
     // System preference dark mode
     if (
@@ -27,14 +35,12 @@ function App() {
             <Route exact path="/">
               <Home />
             </Route>
-            {/* <Route exact path="/exchanges">
-                <Exchanges />
-              </Route> */}
             <Route exact path="/cryptocurrencies">
               <Cryptocurrencies />
             </Route>
             <Route exact path="/crypto/:coinId">
               <CryptoDetails />
+              <Cryptocurrency />
             </Route>
             <Route exact path="/news">
               <News />
@@ -42,6 +48,7 @@ function App() {
           </Switch>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

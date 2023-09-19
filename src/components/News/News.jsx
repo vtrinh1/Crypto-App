@@ -34,7 +34,8 @@ function News({ simplified }) {
     e.preventDefault();
     // Update newsCategory based on the form input
     const newCategory = e.target.category.value;
-    setNewsCategory(newCategory);
+    setNewsCategory(newCategory === "" ? "Cryptocurrency" : newCategory);
+    setSelectedLimit(6);
   };
 
   return (
@@ -98,6 +99,7 @@ function News({ simplified }) {
       )}
       <div className="grid grid-cols-3 gap-x-6 gap-y-12 mb-6">
         <NewsCard
+          key={newsCategory}
           data={cryptoNews}
           isFetching={isFetching}
           simplified={simplified}
